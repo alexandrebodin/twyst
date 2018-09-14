@@ -1,0 +1,8 @@
+{
+  "name": "twyst",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:alexandrebodin/twyst.git",
+  "author": "Alexandre BODIN <bodin.alex@gmail.com>",
+  "license": "MIT"
+}
