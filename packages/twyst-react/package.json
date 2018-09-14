@@ -1,0 +1,27 @@
+{
+  "name": "@twyst/react",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": "https://github.com/alexandrebodin/twyst/tree/master/packages/twyst-react",
+  "author": "Alexandre BODIN <bodin.alex@gmail.com>",
+  "main": "lib/react-twyst.cjs.js",
+  "module": "lib/react-twyst.esm.js",
+  "browser": "lib/react-twyst.umd.js",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c --watch"
+  },
+  "peerDependencies": {
+    "react": "^16.5.2"
+  },
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "rollup": "^0.66.6",
+    "rollup-plugin-babel": "^4.0.3"
+  }
+}

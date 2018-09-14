@@ -1,0 +1,10 @@
+# node
+node_modules/
+lerna-debug.log
+yarn-error.log
+
+# build
+lib
+
+# files
+.DS_Store

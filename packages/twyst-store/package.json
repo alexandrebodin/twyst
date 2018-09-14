@@ -1,0 +1,20 @@
+{
+  "name": "@twyst/store",
+  "version": "0.0.1",
+  "main": "lib/twyst.cjs.js",
+  "module": "lib/twyst.esm.js",
+  "browser": "lib/twyst.umd.js",
+  "repository": "https://github.com/alexandrebodin/twyst/tree/master/packages/twyst-store",
+  "author": "Alexandre BODIN <bodin.alex@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c --watch"
+  },
+  "devDependencies": {
+    "rollup": "^0.66.6"
+  },
+  "files": [
+    "lib"
+  ]
+}

@@ -1,8 +1,27 @@
 {
   "name": "twyst",
-  "version": "0.0.1",
-  "main": "index.js",
+  "private": true,
+  "license": "MIT",
   "repository": "git@github.com:alexandrebodin/twyst.git",
   "author": "Alexandre BODIN <bodin.alex@gmail.com>",
-  "license": "MIT"
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "watch": "lerna run --parallel watch --scope @twyst/*",
+    "format": "prettier --write **/*.{js,json,md}"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "devDependencies": {
+    "husky": "^1.1.2",
+    "lerna": "^3.4.3",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.8.0"
+  }
 }
