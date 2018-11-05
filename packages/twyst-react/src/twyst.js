@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { bindActions } from '@twyst/store';
 
 const ctx = React.createContext();
@@ -24,8 +24,34 @@ export class Subscribe extends React.Component {
 }
 
 export class Provider extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      store: props.store
+    };
+  }
+
   componentDidMount() {
-    this.unsubscribe = this.props.store.subscribe(() => this.setState({}));
+    this.unsubscribe = this.props.store.subscribe(() =>
+      this.setState({
+        store: this.props.store
+      })
+    );
+  }
+
+  componentDidUpdate(prevProps) {
+    // replace store if changed
+    if (prevProps.store !== this.props.store) {
+      this.unsubscribe();
+      this.setState({
+        store: this.props.store
+      });
+      this.unsubscribe = this.props.store.subscribe(() =>
+        this.setState({
+          store: this.props.store
+        })
+      );
+    }
   }
 
   componentWillUnmount() {
@@ -35,21 +61,18 @@ export class Provider extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <ctx.Provider value={this.props.store}>
-          {this.props.children}
-        </ctx.Provider>
+        <ctx.Provider value={this.state}>{this.props.children}</ctx.Provider>
       </React.Fragment>
     );
   }
 }
 
-// TODO: Implement a shallow compare to avoid to many rerenders
 export function connect(mapStateToProps, actions) {
   return function Wrap(Cmp) {
     function WrappedComponent({ children, ...props }) {
       return (
-        <Consumer>
-          {store => {
+        <ctx.Consumer>
+          {({ store }) => {
             const finalProps = {
               ...props,
               ...mapStateToProps(store.getState(), props)
@@ -61,7 +84,7 @@ export function connect(mapStateToProps, actions) {
               </Cmp>
             );
           }}
-        </Consumer>
+        </ctx.Consumer>
       );
     }
 
@@ -69,5 +92,14 @@ export function connect(mapStateToProps, actions) {
       Cmp.displayName || Cmp.name || `TwystConnected`;
 
     return WrappedComponent;
+  };
+}
+
+export function useTwyst(mapStateToProps, actions) {
+  const { store } = useContext(ctx);
+
+  return {
+    ...mapStateToProps(store.getState()),
+    ...bindActions(store, actions)
   };
 }

@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import { Provider as TwystProvider } from '@twyst/react';
 
 import Example1 from './pages/example1';
+import Example2 from './pages/example2';
+import Example3 from './pages/example3';
 
 const Root = () => (
   <div>
@@ -10,27 +11,27 @@ const Root = () => (
       <nav>
         <ul>
           <li>
-            <Link to="/example1">Example 1</Link>
+            <Link to="/example1">Subscribe</Link>
           </li>
           <li>
-            <Link to="/example2">Example 2</Link>
+            <Link to="/example2">connect</Link>
           </li>
           <li>
-            <Link to="/example3">Example 3</Link>
+            <Link to="/example3">hooks</Link>
           </li>
         </ul>
       </nav>
     </header>
     <div>
-      <Route path="/example1" component={Example1} />
+      <Route exact path="/example1" component={Example1} />
+      <Route exact path="/example2" component={Example2} />
+      <Route exact path="/example3" component={Example3} />
     </div>
   </div>
 );
 
 export default () => (
-  <TwystProvider>
-    <BrowserRouter>
-      <Root />
-    </BrowserRouter>
-  </TwystProvider>
+  <BrowserRouter>
+    <Root />
+  </BrowserRouter>
 );

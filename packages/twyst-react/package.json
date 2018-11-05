@@ -6,13 +6,12 @@
   "author": "Alexandre BODIN <bodin.alex@gmail.com>",
   "main": "lib/react-twyst.cjs.js",
   "module": "lib/react-twyst.esm.js",
-  "browser": "lib/react-twyst.umd.js",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c --watch"
   },
   "peerDependencies": {
-    "react": "^16.5.2",
+    "react": "^16.7.0-alpha-0",
     "@twyst/store": "0.0.1"
   },
   "files": [
