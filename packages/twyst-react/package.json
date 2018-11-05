@@ -12,7 +12,8 @@
     "watch": "rollup -c --watch"
   },
   "peerDependencies": {
-    "react": "^16.5.2"
+    "react": "^16.5.2",
+    "@twyst/store": "0.0.1"
   },
   "files": [
     "lib"
