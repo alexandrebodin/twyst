@@ -1,0 +1,20 @@
+{
+  "name": "@twyst/example",
+  "version": "0.0.1",
+  "repository": "git@github.com:alexandrebodin/twyst.git",
+  "author": "Alexandre Bodin <bodin.alex@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "twyst": "workspace:*",
+    "@types/react": "^18.3.12"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.tsx"
+  },
+  "type": "module"
+}

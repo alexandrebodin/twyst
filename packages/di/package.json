@@ -1,0 +1,29 @@
+{
+  "name": "@twyst/di",
+  "version": "0.0.0",
+  "repository": "git@github.com:alexandrebodin/twyst.git",
+  "author": "Alexandre Bodin <bodin.alex@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-swc": "^0.4.0",
+    "@swc/core": "^1.3.46",
+    "rollup": "^4.28.0",
+    "typescript": "^5.0.4"
+  }
+}

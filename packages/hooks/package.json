@@ -1,0 +1,18 @@
+{
+  "name": "@twyst/hooks",
+  "version": "0.0.0",
+  "repository": "git@github.com:alexandrebodin/twyst.git",
+  "author": "Alexandre Bodin <bodin.alex@gmail.com>",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "swc src -d dist --ignore **/*.test.js"
+  }
+}
